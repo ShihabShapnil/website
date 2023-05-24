@@ -1,76 +1,182 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset = "utf-8">
-        <link rel ="stylesheet" href = "styles.css">
-        <link rel="icon" href = "favicon.ico">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
-        <title>Shihab Shapnil</title>
-        
-    </head>
-    <body>
-        <div class="top">
-            <img class = "cloud1" src = "images/cloud.png" alt="Cloud">
-            <h1><span>I'm Shihab.</span></h1>
-            <h2 class = "sub"><span><strong>an ambitious programmer.</strong></span></h2>
-            <img class = "cloud2" src = "images/cloud.png" alt="Cloud">
-            <img class = "cloud3" src = "images/cloud.png" alt="Cloud">
-            <img class = "cloud4" src = "images/cloud.png" alt="Cloud">
-            <img class = "mountain" src = "images/mountain.png" alt="Mountain">
-        </div>
-        <div class="mid">
-            <div class="profile">
-              <img src="images/me.png" class = "me" alt="Picture Of Me :)">
-              <h2>Hello.</h2>
-              <p class="mydesc">I am currently pursuing my <strong>Bachelors</strong> in <strong>Computer Engineering</strong> at </p>
-              <p class = "mydesc2"><strong>Stony Brook University</strong>. </p>
-            </div>
-            <hr>
-            <div class="About">
-              <h2 class="aboutme">About Me.</h2>
-              <div class="about-row">
-                <img class="computer" src="images/computer.gif" alt="Computer Gif">
-                <h3>Hardware Engineering</h3>
-                <p>From consoles to computers, I grew up around a lot of technology. 
-                  My biggest hobby was playing video games, primarily computer games. However, moving forward, the demands for games 
-                  were taxing to outdated computers. And as any aspiring 14-year-old gamer would be, I learned how to build my own computer. 
-                  With that, the thirst for building and learning continued to grow.
-                </p>
-              </div>
-              <div class="about-row">
-                <img class="technology" src="images/technology.gif" alt="Circuit Gif">
-                <h3>Technology and Software Development</h3>
-                  <p>As the end of high school approached, more computers were built and more knowledge was learned. I was finally able to play the video games I wanted but 
-                    this only opened another path. I wanted to learn how these video games were created. So I dove into the software aspect of technology and learned 2 languages, HTML and CSS.
-                  </p>
-              </div>
-              <div class="about-row">
-                <img class="sbugif" src="images/sbugif.gif" alt="Wolfie Gif">
-                <h3>Stony Brook University</h3>
-                <p>Ah, time for college. The beginning of college was an interesting time because I wasn’t 100 percent sure if I wanted to focus on the hardware or software aspect of computers. 
-                  I wanted the best of both worlds, so I decided on Computer Engineering. This gave me the freedom to work with hardware and focus on software at the same time. I believe 
-                  this was one of the best decisions in my college career.
-                </p>
-              </div>
-            </div>
-            <hr>
-            <div class="contact-me">
-              <h2>Get In Touch.</h2>
-              <h3>If you are interested in what I have to offer.</h3>
-              <p>Let's get to know each other. Reach out via email or connect with me on LinkedIn.</p>
-              <a class="btn" href="mailto:shihab.shapnil@stonybrook.edu">CONTACT ME</a>
-            </div>
-          </div>
-          
-          
-          <div class="bot">
-            <a class="footer-link" href="https://www.linkedin.com/in/shihabshapnil/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a class="footer-link" href="https://github.com/ShihabShapnil" target="_blank" rel="noopener noreferrer">GitHub </a>
-            <a class="footer-link" href="https://docs.google.com/document/d/16htbFED50Kp2WNeEsFGpH_TnGOVezWA9LaU4tu2zapE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a>
-            <p class = "at">© Shihab Shapnil.</p>
-          </div>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shihab Shapnil</title>
+  </head>
 
+  <body data-theme="dark">
+    <nav class="navbar">
+      <a href="#profile-anchor">Profile</a>
+      <a href="#about-anchor">About</a>
+      <a href="#projects-anchor">Projects</a>
+      <a href="#contact-anchor">Contact</a>
+    </nav>
+    <div class="toggle-container">
+      <input type="checkbox" id="dark-mode-toggle" class="toggle" />
+      <label for="dark-mode-toggle" class="toggle-label">
+        <img src="images/light-mode-icon.png" alt="Light mode" class="light-icon" />
+        <img src="images/dark-mode-icon.png" alt="Dark mode" class="dark-icon" />
+      </label>
+      
+      <!-- <label for="dark-mode-toggle" class="toggle-label">
+      </label> -->
+    </div>
+    <div class="top">
+      <img class="cloud1" src="images/cloud.png" alt="Cloud" />
+      <h1><span>I'm Shihab.</span></h1>
+      <h2 class="sub">
+        <span><strong>an ambitious programmer.</strong></span>
+      </h2>
+      <img class="cloud2" src="images/cloud.png" alt="Cloud" />
+      <img class="cloud3" src="images/cloud.png" alt="Cloud" />
+      <img class="cloud4" src="images/cloud.png" alt="Cloud" />
+      <img class="mountain" src="images/mountain.png" alt="Mountain" />
+    </div>
+    <div class="mid" id="profile">
+      <div class="anchor" id="profile-anchor"></div>
+      <div class="profile">
+        <img src="images/me.png" class="me" alt="Picture Of Me" />
+        <h2>Hello.</h2>
+        <p class="mydesc">
+          As a recent <strong>Computer Engineering</strong> graduate from 
+          <strong>Stony Brook University</strong>, I'm now diving into the tech industry as a 
+        </p>
+        <p class="mydesc2"><strong>Back-End Developer Intern</strong> at 
+          Social PayMe.<strong></p>
+      </div>
+      <hr />
+      <div class="About" id="about">
+        <div class="anchor" id="about-anchor"></div>
+        <h2 class="aboutme">About Me.</h2>
+        <div class="about-row">
+          <img class="computer" src="images/1st.png" alt="Baby Me" />
+          <h3>Personal Journey and Background</h3>
+          <p>
+            Growing up in Queens, New York, as a first-generation student, I have always been 
+            fascinated by technology, especially computers. My love for math and science during my 
+            childhood, combined with my interest in building custom PCs, inspired me to pursue a 
+            degree in Computer Engineering at Stony Brook University. My diverse cultural background, 
+            with my parents being from Bangladesh, has given me a unique perspective and a strong work
+            ethic.
+          </p>
+        </div>
+        <div class="about-row">
+          <img
+            class="technology"
+            src="images/2nd.png"
+            alt="Teenage Years"
+          />
+          <h3>Technical Foundations</h3>
+          <p>
+            Throughout my academic journey, I have developed a strong foundation in both hardware and 
+            software engineering. My programming skills include languages such as Java, C++, Python, 
+            C, Assembly, and VHDL, equipping me with a versatile skill set. My experience as an 
+            Academic Technologist at DoIT at Stony Brook University and a Developer at IEEE showcases 
+            my ability to apply these skills in real-world settings, demonstrating my technical prowess 
+            and adaptability. Furthermore, my expertise extends across various software tools, including 
+            HTML, CSS, JavaScript, MATLAB, Swift, and Kotlin, making me a well-rounded software engineer.
+          </p>
+        </div>
+        <div class="about-row">
+          <img class="sbugif" src="images/3rd.png" alt="Older Me" />
+          <h3>Unique Strengths and Career Goals</h3>
+          <p>
+            Known for my excellent communication skills, inquisitive nature, and ability to learn quickly, 
+            I am always eager to expand my knowledge and take on new challenges. My goal is to start my 
+            career as a software engineer and eventually transition into the growing field of machine 
+            learning and artificial intelligence. My strong foundation in both hardware and software 
+            engineering, paired with my passion for learning, makes me an ideal candidate for a range of 
+            software engineering roles.
+          </p>
+        </div>
+      </div>
+      <hr />
+      <div class="projects" id="projects">
+        <div class="anchor" id="projects-anchor"></div>
+        <h2>My Projects.</h2>
+        <div class="projects-row">
+          <div class="project">
+            <a href = Digital-Clock.html><img class = "library" src="images/clock.png" alt="Digital Clock"/></a>
+            <a href = Digital-Clock.html class = project-title><h3>Digital Clock</h3></a>
+            <p>A brief description of Project 1.</p>
+          </div>
+          <div class="project">
+            <a href = Library-Management.html><img class = "library" src="images/library-management-system.png" alt="Library Management System" /></a>
+            <a href = Library-Management.html class = project-title><h3>Library Management System</h3></a>
+            <h4 class = "languages">C++ | OOP</h4>
+            <p>Application for maintaining, updating, and searching library records such as
+              available books, return status, and user profiles.</p>
+          </div>
+          <div class="project">
+            <a href = ipoduino.html ><img class = "library " src="images/ipod.png" alt="Arduino iPod" /></a>
+            <a href = ipoduino.html><h3>Arduino iPod</h3></a>
+            <h4 class = "languages">C | Arduino</h4>
+            <p>Low-level audio translation algorithm to make seamless playback of digital MP3 files on 
+              analog Arduino hardware.</p>
+          </div>
+          <div class="project">
+            <a href = Weather-Forecast.html ><img class = "library " src="images/weather-api.png" alt="Weather Forecast CLI" /></a>
+            <a href = Weather-Forecast.html><h3>Weather Forecast CLI</h3></a>
+            <h4 class = "languages">Python | API | Pandas | JSON</h4>
+            <p>Automated scripts for comprehensive real-time weather reports, including temperature, humidity, and location features, 
+              while organizing and querying weather map datasets based on user CLI commands.</p>
+          </div>
+          <div class="project">
+            <a href = Banter-Room.html><img class = "library" src="images/banter_room.png" alt="Banter Room"/></a>
+            <a href = Banter-Room.html class = project-title><h3>Banter Room</h3></a>
+            <h4 class = "languages">Python | Flask | SocketIO | Jinja | HTML | CSS | Firebase</h4>
+            <p>Developed a real-time, multimedia chat application with Flask, web sockets, and Firebase, featuring user searches, 
+              filters, and conversation state preservation.</p>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="contact-me" id="contact">
+        <div class="anchor" id="contact-anchor"></div>
+        <h2>Get In Touch.</h2>
+        <h3>If you are hiring and interested in what I have to offer.</h3>
+        <p>
+          Let's get to know each other. Reach out via email or connect with me
+          on LinkedIn.
+        </p>
+        <a class="btn" href="mailto:shihabshapnil23@gmail.com">CONTACT ME</a>
+      </div>
+    </div>
+
+    <div class="bot">
+      <a
+        class="footer-link"
+        href="https://www.linkedin.com/in/shihabshapnil/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a
+        class="footer-link"
+        href="https://github.com/ShihabShapnil"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub
+      </a>
+      <a
+        class="footer-link"
+        href="https://docs.google.com/document/d/16htbFED50Kp2WNeEsFGpH_TnGOVezWA9LaU4tu2zapE/edit?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Resume</a
+      >
+      <p class="at">© Shihab Shapnil.</p>
+    </div>
+    <script src="interact.js"></script>
+  </body>
 </html>

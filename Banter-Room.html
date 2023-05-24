@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shihab Shapnil</title>
+  </head>
+
+  <body data-theme="dark">
+    <nav class="navbar">
+      <a href="index.html#projects">Back</a>
+    </nav>
+    <div class="toggle-container">
+      <input type="checkbox" id="dark-mode-toggle" class="toggle" />
+      <label for="dark-mode-toggle" class="toggle-label">
+        <img src="images/light-mode-icon.png" alt="Light mode" class="light-icon" />
+        <img src="images/dark-mode-icon.png" alt="Dark mode" class="dark-icon" />
+      </label>
+    </div>
+    <div class="project-top">
+      <h1><span>Banter Room.</span></h1>
+    </div>
+    <div class="mid" id="profile">
+        <main>
+            <section class="demo-video">
+                <h2>Demo Video</h2>
+                <video src="path/to/your/demo-video.mp4" controls></video>
+              </section>
+              <section class="code-snippets">
+                <h2>Code Snippets</h2>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet1" class="snippet">app = Flask(__name__)
+                      app.config["SECRET_KEY"] = "xxx" 
+                      socketio = SocketIO(app)
+                      
+                      rooms = {}
+                      def generate_code(size):
+                          while True:
+                              room_code = ""
+                              for i in range(size):
+                                  room_code += random.choice(ascii_uppercase)
+                              if room_code not in rooms:
+                                  break
+                          return room_code                      
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">Flask and SocketIO Initialization:
+                      This snippet initializes the Flask application and SocketIO. Flask is a web framework used to build web applications, while SocketIO is a library that enables real-time, bidirectional, and event-based communication between the browser and the server. The "rooms" dictionary keeps track of all active chat rooms. The generate_code function is used to generate a unique room code.
+                    </p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet2" class="snippet">@app.route("/", methods = ["POST", "GET"])
+                      def home():
+                          session.clear()
+                          if request.method == "POST":
+                              name = request.form.get("name")
+                              code = request.form.get("code")
+                              join = request.form.get("join", False)
+                              create = request.form.get("create", False)
+                              ...                      
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">The Home Route:
+                      This snippet defines the home route of the application. This is the first page users will see when they visit the application. Here, a user can either join an existing room or create a new room. If a post request is made (i.e., the user submits the form), it retrieves the form values, validates them, and either redirects the user to a room or renders the home page with an appropriate error message.</p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <pre class="snippet-left">
+                    <code id = "snippet3" class="snippet">@socketio.on("message")
+                      def message(data):
+                          room = session.get("room")
+                          if room not in rooms:
+                              return
+                          content = {
+                              "name": session.get("name"),
+                              "message": data["data"]
+                          }
+                          send(content, to=room)
+                          rooms[room]["messages"].append(content)
+                          print(f"{session.get('name')} said: {data['data']}")                      
+                    </code>
+                  </pre>
+                  <div class="snippet-right">
+                    <p class="snippet-description">The Message Event:
+                      This snippet defines the event handler for incoming messages. The message function is triggered whenever the server receives a "message" event from the client. It verifies if the room exists, creates a message object, and sends the message to everyone in the room. It also stores the message in the room's "messages" list for later retrieval.</p>
+                  </div>
+                </div>
+              </section>
+          </main>
+      </div>
+    <div class="bot">
+      <a
+        class="footer-link"
+        href="https://www.linkedin.com/in/shihabshapnil/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a
+        class="footer-link"
+        href="https://github.com/ShihabShapnil"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub
+      </a>
+      <a
+        class="footer-link"
+        href="https://docs.google.com/document/d/16htbFED50Kp2WNeEsFGpH_TnGOVezWA9LaU4tu2zapE/edit?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Resume</a
+      >
+      <p class="at">© Shihab Shapnil.</p>
+    </div>
+    <script src="interact.js"></script>
+  </body>
+</html>

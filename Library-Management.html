@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shihab Shapnil</title>
+  </head>
+
+  <body data-theme="dark">
+    <nav class="navbar">
+      <a href="index.html#projects">Back</a>
+    </nav>
+    <div class="toggle-container">
+      <input type="checkbox" id="dark-mode-toggle" class="toggle" />
+      <label for="dark-mode-toggle" class="toggle-label">
+        <img src="images/light-mode-icon.png" alt="Light mode" class="light-icon" />
+        <img src="images/dark-mode-icon.png" alt="Dark mode" class="dark-icon" />
+      </label>
+    </div>
+    <div class="project-top">
+      <h1><span>Library Management System.</span></h1>
+    </div>
+    <div class="mid" id="profile">
+        <main>
+            <section class="demo-video">
+                <h2>Demo Video</h2>
+                <video src="path/to/your/demo-video.mp4" controls></video>
+              </section>
+              <section class="code-snippets">
+                <h2>Code Snippets</h2>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet1" class="snippet">int main() {
+                      Reader s1;
+                      s1.loadAll();
+                      string userattempt, passattempt;
+                      cout << "Please Login" << endl;
+                      cout << "Username: " << endl;
+                      cin >> userattempt;
+                      cout << "Password: " << endl;
+                      cin >> passattempt;
+                      if (s1.Login(userattempt, passattempt))
+                        controlPanel(cin, s1, userattempt, passattempt);
+                      else
+                      {
+                        cout << "Incorrect Username or Password, try again" << endl;
+                        MainMenu(cin, s1, userattempt, passattempt);
+                      }
+                      system("pause");
+                      return 0;
+                    }                    
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">User Login verification:
+                      This snippet handles user input for the username and password, checks if the credentials match a user in the system, and calls the control panel function if the login is successful. If not, it prompts the user to try again.</p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet2" class="snippet">case '2':
+                      if (!(s1.checkforFullStudent(userattempt)))
+                      {
+                        if (!(s1.checkforLateStudent(userattempt)))
+                        {
+                          cout << "Enter the ID of the book you want to borrow" << endl;
+                          cin >> ID;
+                          s1.borrowBooks(ID);
+                        }
+                      }
+                      break;
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">Reader::borrowBooks function:
+                      This snippet is a part of the Reader class and is responsible for borrowing books from the library. It takes the book ID as input, checks if the book is available, and then updates the book's status to borrowed, assigns it to the user, and updates the due date.</p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <pre class="snippet-left">
+                    <code id = "snippet3" class="snippet">void SearchPanel(istream& in, Reader s1)
+                      {
+                        cout << "-----------------------------------------------------" << endl
+                          << "-\t\tWays to Search\t\t-" << endl
+                          << "-----------------------------------------------------" << endl;
+                        cout << endl << "Please choose: " << endl;
+                        cout << "\n\t1 -- ISBN" << endl;
+                        cout << "\t2 -- ID" << endl;
+                        cout << "\t3 -- Title" << endl;
+                        cout << "\t4 -- Author" << endl;
+                        cout << "\t5 -- Category" << endl;
+                        cout << "Enter an option: ";
+                        char co = 'q';
+                        cin >> co;
+                        switch (co) {
+                        case '1':
+                          s1.SearchbyISBN();
+                          break;
+                        case '2':
+                          s1.SearchbyID();
+                          break;
+                        case '3':
+                          s1.SearchbyTitle();
+                          break;
+                        case '4':
+                          s1.SearchbyAuthor();
+                          break;
+                        case '5':
+                          s1.SearchbyCategory();
+                          break;
+                        }
+                      } 
+                    </code>
+                  </pre>
+                  <div class="snippet-right">
+                    <p class="snippet-description">SearchPanel function:
+                      This snippet is a function that displays a menu with various search options (ISBN, ID, Title, Author, Category) for users to choose from. It calls the appropriate search function from the Reader class based on the user's choice.</p>
+                  </div>
+                </div>
+              
+                <div class="snippet-container">
+                  <pre class="snippet-left">
+                    <code id = "snippet4" class="snippet">void controlPanel(istream& in, Reader& s1, string userattempt, string passattempt) {
+                      if (s1.getRtype(userattempt) == "STUDENT") {
+                          // Code for handling STUDENT operations
+                      }
+                  
+                      if (s1.getRtype(userattempt) == "TEACHER") {
+                          // Code for handling TEACHER operations
+                      }
+                  
+                      if (s1.getRtype(userattempt) == "LIBRARIAN") {
+                          // Code for handling LIBRARIAN operations
+                      }
+                  }
+                      </code>
+                  </pre>
+                  <div class="snippet-right">
+                    <p class="snippet-description">controlPanel function:
+                      This snippet handles role-based access control by directing users to different menus and functionalities based on their roles (Student, Teacher, or Librarian). Each role has a unique set of options available, ensuring a customized experience for each user type.</p>
+                  </div>
+                </div>
+              
+                <div class="snippet-container">
+                  <pre class="snippet-left">
+                    <code id = "snippet5" class="snippet">if (s1.getRtype(userattempt) == "LIBRARIAN")
+                      {
+                          // ... other code omitted for clarity
+                          char ch = 'q';
+                          while (ch != '0') {
+                              cout << "\nEnter an option: ";
+                              cin >> ch;
+                              switch (ch) {
+                              case '2':
+                                  s1.AddBook();
+                                  break;
+                              // ... other cases omitted for clarity
+                              }
+                          }
+                      }
+                      </code>
+                  </pre>
+                  <div class="snippet-right">
+                    <p class="snippet-description">AddBook Function: This snippet of code is an important part of the Librarian role in the library management system. It showcases the functionality for adding a new book to the library. The Librarian is prompted to enter details of the new book, and the AddBook() function is called from the Reader class (which presumably also handles librarian functionality), effectively adding the book to the library database. This snippet is essential as it allows the system to grow and adapt by adding new materials to the library.</p>
+                  </div>
+                </div>
+              </section>
+          </main>
+      </div>
+    <div class="bot">
+      <a
+        class="footer-link"
+        href="https://www.linkedin.com/in/shihabshapnil/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a
+        class="footer-link"
+        href="https://github.com/ShihabShapnil"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub
+      </a>
+      <a
+        class="footer-link"
+        href="https://docs.google.com/document/d/16htbFED50Kp2WNeEsFGpH_TnGOVezWA9LaU4tu2zapE/edit?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Resume</a
+      >
+      <p class="at">© Shihab Shapnil.</p>
+    </div>
+    <script src="interact.js"></script>
+  </body>
+</html>

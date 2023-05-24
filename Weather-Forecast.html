@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shihab Shapnil</title>
+  </head>
+
+  <body data-theme="dark">
+    <nav class="navbar">
+      <a href="index.html#projects">Back</a>
+    </nav>
+    <div class="toggle-container">
+      <input type="checkbox" id="dark-mode-toggle" class="toggle" />
+      <label for="dark-mode-toggle" class="toggle-label">
+        <img src="images/light-mode-icon.png" alt="Light mode" class="light-icon" />
+        <img src="images/dark-mode-icon.png" alt="Dark mode" class="dark-icon" />
+      </label>
+    </div>
+    <div class="project-top">
+      <h1><span>Weather Forecast CLI.</span></h1>
+    </div>
+    <div class="mid" id="profile">
+        <main>
+            <section class="demo-video">
+                <h2>Demo Video</h2>
+                <video src="path/to/your/demo-video.mp4" controls></video>
+              </section>
+              <section class="code-snippets">
+                <h2>Code Snippets</h2>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet1" class="snippet">  API_KEY = "xxx"
+                      BASE_URL = "https://api.openweathermap.org/data/2.5/weather"
+                      weather_location = input("Enter a City Name: ").strip()
+                      city_request_url = f"{BASE_URL}?appid={API_KEY}&q={weather_location}"
+                      info = requests.get(city_request_url)                    
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">Fetching Weather Data From An API:
+                      This snippet fetches weather data from the OpenWeatherMap API. It forms a URL containing the API endpoint, the user's API key, and the name of a city inputted by the user. It then sends a GET request to this URL and stores the response.</p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet2" class="snippet">def check(response):
+                      if response.status_code == 200:
+                        return True
+                      else:
+                        return False                    
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">Checking If The API Request was Successful:
+                      This function takes the response from an API request and checks if it was successful by checking if the status code is 200, which indicates a successful HTTP request.</p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <pre class="snippet-left">
+                    <code id = "snippet3" class="snippet">def convert(weather):
+                      lat, lon = weather["coord"]["lat"], weather["coord"]["lon"]
+                      temp, feelTemp = weather["main"]["temp"], weather["main"]["feels_like"]
+                      desc = (weather["weather"][0]["description"]).title()
+                      city = weather["name"]
+                      newTemp = temp_conv(temp)
+                      newFeelTemp = temp_conv(feelTemp)
+                      current_time = time(lat, lon)
+                      return current_time, newTemp, newFeelTemp, desc, city                    
+                    </code>
+                  </pre>
+                  <div class="snippet-right">
+                    <p class="snippet-description">Extracting and Converting Weather Data from the API Response:
+                      This function extracts specific pieces of data from the API response, such as the city name, temperature, and weather description. It also calls two other functions to convert the temperature from Kelvin to Fahrenheit and Celsius and to get the current time in the city.</p>
+                  </div>
+                </div>
+              </section>
+          </main>
+      </div>
+    <div class="bot">
+      <a
+        class="footer-link"
+        href="https://www.linkedin.com/in/shihabshapnil/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a
+        class="footer-link"
+        href="https://github.com/ShihabShapnil"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub
+      </a>
+      <a
+        class="footer-link"
+        href="https://docs.google.com/document/d/16htbFED50Kp2WNeEsFGpH_TnGOVezWA9LaU4tu2zapE/edit?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Resume</a
+      >
+      <p class="at">© Shihab Shapnil.</p>
+    </div>
+    <script src="interact.js"></script>
+  </body>
+</html>

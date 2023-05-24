@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shihab Shapnil</title>
+  </head>
+
+  <body data-theme="dark">
+    <nav class="navbar">
+      <a href="index.html#projects">Back</a>
+    </nav>
+    <div class="toggle-container">
+      <input type="checkbox" id="dark-mode-toggle" class="toggle" />
+      <label for="dark-mode-toggle" class="toggle-label">
+        <img src="images/light-mode-icon.png" alt="Light mode" class="light-icon" />
+        <img src="images/dark-mode-icon.png" alt="Dark mode" class="dark-icon" />
+      </label>
+    </div>
+    <div class="project-top">
+      <h1><span>Arduino iPod.</span></h1>
+    </div>
+    <div class="mid" id="profile">
+        <main>
+            <section class="demo-video">
+                <h2>Demo Video</h2>
+                <video src="Demos/Arduino (iPoduino) Project.mp4" controls></video>
+              </section>
+              <section class="code-snippets">
+                <h2>Code Snippets</h2>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet1" class="snippet">#define SPEAKER 3
+                        #define POTENTIOMETER A6
+                        int NOTE_DUR = 140;                                            
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">Defining Constants:
+                        This snippet defines some constants for the script. SPEAKER is defined as 3, which is the pin number to which the speaker is connected. POTENTIOMETER is defined as A6, which is the analog pin number to which the potentiometer is connected. NOTE_DUR is defined as 140 which is the base duration for a note in milliseconds.</p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet2" class="snippet">void play(int note, int dur){
+                        tone(SPEAKER, note);
+                        delay(dur * NOTE_DUR);
+                        noTone(SPEAKER);
+                        delay(dur * NOTE_DUR/3);
+                      }                      
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">Play Function:
+                        The play function is responsible for generating a musical tone. It uses the tone() function to generate a square wave of the specified frequency (or note) on a particular pin (SPEAKER). The tone is played for a duration given by dur * NOTE_DUR. After the tone is played, the noTone() function is used to stop playing the tone on the SPEAKER pin.</p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <pre class="snippet-left">
+                    <code id = "snippet3" class="snippet">void setup() {
+                        pinMode(SPEAKER, OUTPUT);
+                        pinMode(POTENTIOMETER, INPUT);
+                      }                                      
+                    </code>
+                  </pre>
+                  <div class="snippet-right">
+                    <p class="snippet-description">Setup Function: 
+                        The setup function is called when the program starts. It's used to initialize variables, input and output pin modes, and start using libraries. Here, it's setting SPEAKER as an output pin (since it will output to the speaker) and POTENTIOMETER as an input pin (since it will read the position of the potentiometer).
+                    </p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                    <pre class="snippet-left">
+                      <code id = "snippet3" class="snippet">void loop() {
+                        int x;
+                        x = analogRead(POTENTIOMETER);
+                        if(x <= 341){
+                          song1();
+                        }else if(x <= 682){
+                          song2();
+                        }else{
+                          song3();
+                        }
+                      }                      
+                      </code>
+                    </pre>
+                    <div class="snippet-right">
+                      <p class="snippet-description">Loop Function:
+                        The loop function is the heart of any Arduino program. It runs over and over again and is where the main logic of the program resides. Here, it reads the value from the potentiometer and depending on its value, it plays one of the three songs. The value read from the potentiometer will range from 0 to 1023. Thus, if the value is in the lower third, it plays song1(), if it's in the middle third, it plays song2(), and if it's in the upper third, it plays song3().
+                      </p>
+                    </div>
+                  </div>
+              </section>
+          </main>
+      </div>
+    <div class="bot">
+      <a
+        class="footer-link"
+        href="https://www.linkedin.com/in/shihabshapnil/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a
+        class="footer-link"
+        href="https://github.com/ShihabShapnil"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub
+      </a>
+      <a
+        class="footer-link"
+        href="https://docs.google.com/document/d/16htbFED50Kp2WNeEsFGpH_TnGOVezWA9LaU4tu2zapE/edit?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Resume</a
+      >
+      <p class="at">© Shihab Shapnil.</p>
+    </div>
+    <script src="interact.js"></script>
+  </body>
+</html>
