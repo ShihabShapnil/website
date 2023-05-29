@@ -28,17 +28,86 @@
     <div class="project-top">
       <h1><span>Digital Clock.</span></h1>
     </div>
-    <div class="mid" id="profile">
+      <div class="mid" id="profile">
         <main>
             <section class="demo-video">
                 <h2>Demo Video</h2>
                 <video src="path/to/your/demo-video.mp4" controls></video>
               </section>
-            <section class="code-snippets">
-              <h2>Code Snippets</h2>
-              <code id = "snippet1" class="snippet">//Test Test Test//</code>
-              <code id = "snippet2" class="snippet">//Code Code Code//</code>
-            </section>
+              <section class="code-snippets">
+                <h2>Code Snippets</h2>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet1" class="snippet">void display_digit (char number, char digit)
+                      {
+                          // turn on the appropriate segments
+                          switch (number)
+                          {
+                              case 0:
+                                  PORTD = 0b00001001;
+                                  break;
+                              // ... other cases ...
+                              default:
+                                  PORTD = 0b11111110;
+                          }
+                      
+                          // turn on the appropriate digit
+                          switch (digit)
+                          {
+                              case 1:
+                                  PORTB = 0b11111101;
+                                  break;
+                              // ... other cases ...
+                              default:
+                                  PORTB = 0b00111000;
+                          }
+                          delay_us (2700); // wait
+                          PORTB = 0b11111111; // turn off digit
+                      }                      
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">A 7-segment display is made up of seven LEDs that can be individually controlled to display digits from 0 to 9. Each segment (LED) corresponds to a specific part of the number, and by illuminating the appropriate segments, any digit can be displayed. For multi-digit displays, each digit can be controlled separately. Rapid switching between digits gives the illusion of all digits being lit simultaneously.</p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <div class="snippet-left">
+                    <pre><code id="snippet2" class="snippet">char delay_us (int d)
+                      {
+                          d = (d-56) * 1.58;
+                          char tap=0;
+                          while (d>0)
+                          {
+                              tap = PINC & 0b1000000;
+                              d--;
+                          }
+                          return (tap);
+                      }                      
+                    </code></pre>
+                  </div>
+                  <div class="snippet-right">
+                    <p class="snippet-description">A delay function pauses a program for a specified duration. It is often used in microcontroller programs to control timing or pacing. In the case of delay_us, it waits a specified number of microseconds, also checking the state of a specified pin (PINC7 in this case) and returns the number of times the pin's state has changed during the delay.</p>
+                  </div>
+                </div>
+                <div class="snippet-container">
+                  <pre class="snippet-left">
+                    <code id = "snippet3" class="snippet">for (char i = 0; i < 2; i++)
+                      {
+                        PORTC = PORTC ^ 0b00000001;			// toggle alarm LED
+                        for (char j = 0; j < 100; j++)
+                        {
+                          PORTC = PORTC ^ 0b00000010;		// toggle bender
+                          delay_us (400);
+                        }
+                        delay_ms (200);
+                      }                      
+                    </code>
+                  </pre>
+                  <div class="snippet-right">
+                    <p class="snippet-description">This code snippet, typically used for microcontrollers, alternates the states of two devices connected to an 8-bit port, PORTC. The first device, an alarm LED, is toggled once each loop, and this whole process is repeated twice. The second device, referred to as 'bender', is toggled 100 times rapidly with a 400-microsecond delay between each toggle. After each set of 100 toggles, a 200-millisecond delay occurs. The purpose is to control and alternate these devices' states in a specific pattern.</p>
+                  </div>
+                </div>
+              </section>
           </main>
       </div>
     <div class="bot">
